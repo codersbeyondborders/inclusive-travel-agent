@@ -1,0 +1,54 @@
+{
+  "state": {
+    "user_profile": {
+      "passport_nationality": "US Citizen",
+      "seat_preference": "aisle",
+      "food_preference": "vegetarian",
+      "allergies": [],
+      "likes": ["accessible museums", "scenic accessible routes", "inclusive activities"],
+      "dislikes": ["crowded inaccessible venues", "stairs without alternatives"],
+      "price_sensitivity": ["budget-conscious but willing to pay for accessibility"],
+      "home": {
+        "event_type": "home",
+        "address": "6420 Sequence Dr #400, San Diego, CA 92121, United States",
+        "local_prefer_mode": "accessible_public_transport"
+      },
+      "accessibility_needs": {
+        "mobility_needs": ["wheelchair_accessible", "step_free_access"],
+        "sensory_needs": [],
+        "cognitive_needs": [],
+        "medical_needs": [],
+        "assistance_preferences": {
+          "airport_assistance": "wheelchair_assistance",
+          "boarding_preference": "priority_boarding",
+          "seating_preference": "aisle_seat_near_front"
+        },
+        "mobility_aids": ["manual_wheelchair"]
+      },
+      "emergency_contacts": [
+        {
+          "name": "Emergency Contact",
+          "phone": "+1-555-0123",
+          "relationship": "family",
+          "accessibility_aware": "true"
+        }
+      ],
+      "medical_documents": ["disability_certificate", "medical_clearance_for_travel"]
+    },
+    "itinerary": {},
+    "origin": "",
+    "destination": "",
+    "start_date": "",
+    "end_date": "",
+    "outbound_flight_selection": "",
+    "outbound_seat_number": "",
+    "return_flight_selection": "",
+    "return_seat_number": "",
+    "hotel_selection": "",
+    "room_selection": "",
+    "poi": "",
+    "itinerary_datetime": "",
+    "itinerary_start_date": "",
+    "itinerary_end_date": ""
+  }
+}
