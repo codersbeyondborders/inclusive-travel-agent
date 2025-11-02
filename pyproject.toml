@@ -1,5 +1,5 @@
 [project]
-name = "travel-concierge"
+name = "inclusive-travel-agent"
 version = "0.1.0"
 description = "An AI-powered inclusive travel agent specializing in accessible travel planning, providing comprehensive support for disabled travelers throughout their journey."
 authors = [
@@ -66,7 +66,7 @@ select = [
 ignore = ["E501", "C901"] # ignore line too long, too complex
 
 [tool.ruff.lint.isort]
-known-first-party = ["travel_concierge"]
+known-first-party = ["inclusive_travel_agent"]
 
 [tool.mypy]
 disallow_untyped_calls = true
@@ -107,4 +107,4 @@ module-root = ""
 example_question = "I want to plan a trip to Seattle"
 
 [tool.agent-starter-pack.settings]
-agent_directory = "travel_concierge"
+agent_directory = "inclusive_travel_agent"

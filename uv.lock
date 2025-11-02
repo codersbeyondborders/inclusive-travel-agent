@@ -3102,7 +3102,7 @@ wheels = [
 ]
 
 [[package]]
-name = "travel-concierge"
+name = "inclusive-travel-agent"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

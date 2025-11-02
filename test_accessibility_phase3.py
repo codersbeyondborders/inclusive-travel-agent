@@ -71,7 +71,7 @@ def test_accessibility_apis():
     print("\nTesting Accessibility API Integration...")
     
     try:
-        from travel_concierge.tools.accessibility_apis import (
+        from inclusive_travel_agent.tools.accessibility_apis import (
             AccessibilityAPIService,
             search_accessible_venues,
             get_airport_accessibility,
@@ -129,7 +129,7 @@ def test_cloud_run_files():
         return False
     
     # Check FastAPI main application
-    if Path("travel_concierge/main.py").exists():
+    if Path("inclusive_travel_agent/main.py").exists():
         print("✓ FastAPI main application exists")
     else:
         print("❌ FastAPI main application missing")
@@ -151,7 +151,7 @@ def test_fastapi_application():
     print("\nTesting FastAPI Application...")
     
     try:
-        from travel_concierge.main import app
+        from inclusive_travel_agent.main import app
         print("✓ FastAPI application imported successfully")
         
         # Check that the app has expected endpoints
@@ -182,8 +182,8 @@ def test_agent_integration():
     print("\nTesting Agent Integration with APIs...")
     
     try:
-        from travel_concierge.sub_agents.accessibility_research.agent import accessibility_research_agent
-        from travel_concierge.sub_agents.barrier_navigation.agent import barrier_navigation_agent
+        from inclusive_travel_agent.sub_agents.accessibility_research.agent import accessibility_research_agent
+        from inclusive_travel_agent.sub_agents.barrier_navigation.agent import barrier_navigation_agent
         
         # Check accessibility research agent tools
         research_tool_names = [tool.name if hasattr(tool, 'name') else str(tool) for tool in accessibility_research_agent.tools]
@@ -217,7 +217,7 @@ def test_complete_system_loading():
         # Set environment to use ML Dev backend
         os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "0"
         
-        from travel_concierge.agent import root_agent
+        from inclusive_travel_agent.agent import root_agent
         
         if root_agent and root_agent.name == "root_agent":
             print("✓ Root agent loads successfully with ML Dev backend")
@@ -248,7 +248,7 @@ def test_deployment_readiness():
     required_files = [
         "Dockerfile",
         "cloudbuild.yaml", 
-        "travel_concierge/main.py",
+        "inclusive_travel_agent/main.py",
         "deploy/deploy_cloud_run.py",
         ".env.example"
     ]
@@ -285,7 +285,7 @@ def run_integration_test():
         os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "0"
         
         # Import and test basic functionality
-        from travel_concierge.agent import root_agent
+        from inclusive_travel_agent.agent import root_agent
         from google.adk.sessions import Session
         
         # Test basic agent functionality without full session

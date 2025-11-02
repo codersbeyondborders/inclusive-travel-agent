@@ -149,7 +149,7 @@ WHEELMAP_API_KEY=your_wheelmap_key             # Wheelmap.org API
 ACCESSIBLEGO_API_KEY=your_accessiblego_key     # AccessibleGO API
 
 # Application Configuration
-INCLUSIVE_TRAVEL_AGENT_SCENARIO=travel_concierge/profiles/itinerary_accessible_default.json
+INCLUSIVE_TRAVEL_AGENT_SCENARIO=inclusive_travel_agent/profiles/itinerary_accessible_default.json
 ```
 
 ## Testing Results

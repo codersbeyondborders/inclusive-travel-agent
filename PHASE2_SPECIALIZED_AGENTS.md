@@ -85,7 +85,7 @@ User Request Type → Appropriate Agent
 
 ### File Structure Added:
 ```
-travel_concierge/sub_agents/
+inclusive_travel_agent/sub_agents/
 ├── accessibility_research/
 │   ├── __init__.py
 │   ├── agent.py
@@ -105,9 +105,9 @@ travel_concierge/sub_agents/
 ```
 
 ### Enhanced Files:
-- `travel_concierge/agent.py` - Integrated new agents
-- `travel_concierge/prompt.py` - Updated routing logic
-- `travel_concierge/sub_agents/booking/prompt.py` - Added accessibility accommodations
+- `inclusive_travel_agent/agent.py` - Integrated new agents
+- `inclusive_travel_agent/prompt.py` - Updated routing logic
+- `inclusive_travel_agent/sub_agents/booking/prompt.py` - Added accessibility accommodations
 
 ## Key Features Implemented
 

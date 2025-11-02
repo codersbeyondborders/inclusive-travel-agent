@@ -457,7 +457,7 @@ GOOGLE_CLOUD_PROJECT=your_production_project
 
 ```bash
 # Start the backend API
-uv run uvicorn travel_concierge.main:app --reload --port 8080
+uv run uvicorn inclusive_travel_agent.main:app --reload --port 8080
 
 # Test the API
 curl -X POST http://localhost:8080/users \

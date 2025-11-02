@@ -107,7 +107,7 @@ def build_and_deploy(project_id: str, region: str = "us-central1", use_cloud_bui
             --cpu 2 \
             --max-instances 10 \
             --set-env-vars GOOGLE_GENAI_USE_VERTEXAI=0 \
-            --set-env-vars INCLUSIVE_TRAVEL_AGENT_SCENARIO=travel_concierge/profiles/itinerary_accessible_default.json
+            --set-env-vars INCLUSIVE_TRAVEL_AGENT_SCENARIO=inclusive_travel_agent/profiles/itinerary_accessible_default.json
         """
         run_command(deploy_cmd)
     

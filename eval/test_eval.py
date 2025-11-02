@@ -16,7 +16,7 @@ def load_env():
 async def test_inspire():
     """Test the agent's basic ability on a few examples."""
     await AgentEvaluator.evaluate(
-        "travel_concierge",
+        "inclusive_travel_agent",
         str(pathlib.Path(__file__).parent / "data/inspire.test.json"),
         num_runs=4
     )
@@ -26,7 +26,7 @@ async def test_inspire():
 async def test_pretrip():
     """Test the agent's basic ability on a few examples."""
     await AgentEvaluator.evaluate(
-        "travel_concierge",
+        "inclusive_travel_agent",
         str(pathlib.Path(__file__).parent / "data/pretrip.test.json"),
         num_runs=4
     )
@@ -36,7 +36,7 @@ async def test_pretrip():
 async def test_intrip():
     """Test the agent's basic ability on a few examples."""
     await AgentEvaluator.evaluate(
-        "travel_concierge",
+        "inclusive_travel_agent",
         str(pathlib.Path(__file__).parent / "data/intrip.test.json"),
         num_runs=4
     )

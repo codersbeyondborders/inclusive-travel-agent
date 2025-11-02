@@ -8,7 +8,7 @@ import requests
 # This client also illustrates how one can use the adk events streamed from the server side to inform user interface components.
 #
 
-# Endpoint created by running `adk api_server travel_concierge``
+# Endpoint created by running `adk api_server inclusive_travel_agent``
 RUN_ENDPOINT = "http://127.0.0.1:8000/run_sse"
 HEADERS = {
     "Content-Type": "application/json; charset=UTF-8",
@@ -16,7 +16,7 @@ HEADERS = {
 }
 
 # Create a session if it doesn't exist
-SESSION_ENDPOINT = "http://127.0.0.1:8000/apps/travel_concierge/users/traveler0115/sessions/session_2449"
+SESSION_ENDPOINT = "http://127.0.0.1:8000/apps/inclusive_travel_agent/users/traveler0115/sessions/session_2449"
 response = requests.post(SESSION_ENDPOINT)
 print("Session", response.json())
 
@@ -30,7 +30,7 @@ for user_input in user_inputs:
 
     DATA = {
         "session_id": "session_2449",
-        "app_name": "travel_concierge",
+        "app_name": "inclusive_travel_agent",
         "user_id": "traveler0115",
         "new_message": {
             "role": "user",

@@ -10,7 +10,7 @@ from google.adk.sessions import InMemorySessionService
 from google.adk.tools.agent_tool import AgentTool
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StdioServerParameters
 from google.genai import types
-from travel_concierge.agent import root_agent
+from inclusive_travel_agent.agent import root_agent
 
 
 load_dotenv()
@@ -61,7 +61,7 @@ async def get_agent_async():
 
 
 async def async_main(question):
-    """Executes one turn of the travel_concierge agents with a query that would trigger the MCP tool."""
+    """Executes one turn of the inclusive_travel_agent agents with a query that would trigger the MCP tool."""
     session_service = InMemorySessionService()
     artifacts_service = InMemoryArtifactService()
     session = session_service.create_session(

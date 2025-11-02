@@ -65,12 +65,12 @@ Successfully transformed the original system into an inclusive travel agent by i
 ## Technical Implementation
 
 ### File Changes Made:
-1. `travel_concierge/shared_libraries/types.py` - Extended with accessibility models
-2. `travel_concierge/prompt.py` - Updated root agent for inclusive focus
-3. `travel_concierge/sub_agents/inspiration/prompt.py` - Accessibility-focused prompts
-4. `travel_concierge/sub_agents/planning/prompt.py` - Accessible planning instructions
-5. `travel_concierge/profiles/itinerary_accessible_default.json` - New accessible profile
-6. `travel_concierge/tools/memory.py` - Updated default profile path
+1. `inclusive_travel_agent/shared_libraries/types.py` - Extended with accessibility models
+2. `inclusive_travel_agent/prompt.py` - Updated root agent for inclusive focus
+3. `inclusive_travel_agent/sub_agents/inspiration/prompt.py` - Accessibility-focused prompts
+4. `inclusive_travel_agent/sub_agents/planning/prompt.py` - Accessible planning instructions
+5. `inclusive_travel_agent/profiles/itinerary_accessible_default.json` - New accessible profile
+6. `inclusive_travel_agent/tools/memory.py` - Updated default profile path
 7. `.env.example` - Updated to use accessible profile by default
 
 ### Testing

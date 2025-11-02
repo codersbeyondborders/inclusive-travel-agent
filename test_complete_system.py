@@ -15,7 +15,7 @@ def test_phase1_accessibility_integration():
     
     try:
         # Test accessibility data models
-        from travel_concierge.shared_libraries.types import (
+        from inclusive_travel_agent.shared_libraries.types import (
             AccessibilityInfo, AccessibilityNeeds, AccessibleUserProfile,
             Destination, POI, Hotel, Flight, DisabilityExpense
         )
@@ -48,7 +48,7 @@ def test_phase1_accessibility_integration():
         print("  ✅ Accessibility data models working")
         
         # Test accessible profile loading
-        profile_path = Path("travel_concierge/profiles/itinerary_accessible_default.json")
+        profile_path = Path("inclusive_travel_agent/profiles/itinerary_accessible_default.json")
         if profile_path.exists():
             print("  ✅ Accessible user profile exists")
         else:
@@ -68,10 +68,10 @@ def test_phase2_specialized_agents():
     
     try:
         # Test new specialized agents
-        from travel_concierge.sub_agents.accessibility_research.agent import accessibility_research_agent
-        from travel_concierge.sub_agents.mobility_preparation.agent import mobility_preparation_agent
-        from travel_concierge.sub_agents.transit_support.agent import transit_support_agent
-        from travel_concierge.sub_agents.barrier_navigation.agent import barrier_navigation_agent
+        from inclusive_travel_agent.sub_agents.accessibility_research.agent import accessibility_research_agent
+        from inclusive_travel_agent.sub_agents.mobility_preparation.agent import mobility_preparation_agent
+        from inclusive_travel_agent.sub_agents.transit_support.agent import transit_support_agent
+        from inclusive_travel_agent.sub_agents.barrier_navigation.agent import barrier_navigation_agent
         
         agents = [
             accessibility_research_agent,
@@ -88,7 +88,7 @@ def test_phase2_specialized_agents():
                 return False
         
         # Test root agent integration
-        from travel_concierge.agent import root_agent
+        from inclusive_travel_agent.agent import root_agent
         
         if len(root_agent.sub_agents) == 10:
             print("  ✅ All 10 agents integrated in root agent")
@@ -119,7 +119,7 @@ def test_phase3_cloud_deployment():
             return False
         
         # Test accessibility APIs
-        from travel_concierge.tools.accessibility_apis import AccessibilityAPIService
+        from inclusive_travel_agent.tools.accessibility_apis import AccessibilityAPIService
         
         api_service = AccessibilityAPIService()
         airport_info = api_service.get_airport_accessibility_info("LAX")
@@ -131,7 +131,7 @@ def test_phase3_cloud_deployment():
             return False
         
         # Test FastAPI application
-        from travel_concierge.main import app
+        from inclusive_travel_agent.main import app
         
         routes = [route.path for route in app.routes]
         expected_routes = ["/", "/health", "/chat", "/agent/info"]
@@ -173,7 +173,7 @@ def test_system_integration():
         os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "0"
         
         # Test complete system loading
-        from travel_concierge.agent import root_agent
+        from inclusive_travel_agent.agent import root_agent
         
         # Verify all components
         if not root_agent:
@@ -228,7 +228,7 @@ def test_accessibility_features():
     
     try:
         # Test accessibility data structures
-        from travel_concierge.shared_libraries.types import AccessibilityInfo, AccessibilityNeeds
+        from inclusive_travel_agent.shared_libraries.types import AccessibilityInfo, AccessibilityNeeds
         
         # Create comprehensive accessibility info
         accessibility_info = AccessibilityInfo(
@@ -257,7 +257,7 @@ def test_accessibility_features():
         print("  ✅ Accessibility data structures comprehensive")
         
         # Test accessibility API tools
-        from travel_concierge.tools.accessibility_apis import (
+        from inclusive_travel_agent.tools.accessibility_apis import (
             search_accessible_venues,
             get_airport_accessibility,
             search_accessible_routes
@@ -266,7 +266,7 @@ def test_accessibility_features():
         print("  ✅ Accessibility API tools available")
         
         # Test agent accessibility integration
-        from travel_concierge.sub_agents.accessibility_research.agent import accessibility_research_agent
+        from inclusive_travel_agent.sub_agents.accessibility_research.agent import accessibility_research_agent
         
         research_tools = [str(tool) for tool in accessibility_research_agent.tools]
         has_accessibility_tools = any("accessibility" in tool.lower() for tool in research_tools)
@@ -289,7 +289,7 @@ def generate_system_report():
     print("\n📊 System Report")
     
     try:
-        from travel_concierge.agent import root_agent
+        from inclusive_travel_agent.agent import root_agent
         
         print(f"  🤖 Root Agent: {root_agent.name}")
         print(f"  📝 Description: {root_agent.description}")
@@ -313,7 +313,7 @@ def generate_system_report():
         deployment_files = [
             "Dockerfile",
             "cloudbuild.yaml", 
-            "travel_concierge/main.py",
+            "inclusive_travel_agent/main.py",
             "deploy/deploy_cloud_run.py"
         ]
         

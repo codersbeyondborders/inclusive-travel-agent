@@ -4,7 +4,7 @@ Test script for Phase 2: Specialized Agent Development
 """
 
 import json
-from travel_concierge.agent import root_agent
+from inclusive_travel_agent.agent import root_agent
 
 def test_new_accessibility_agents():
     """Test that all new accessibility agents are properly integrated."""
@@ -38,16 +38,16 @@ def test_accessibility_agent_imports():
     print("\nTesting Accessibility Agent Imports...")
     
     try:
-        from travel_concierge.sub_agents.accessibility_research.agent import accessibility_research_agent
+        from inclusive_travel_agent.sub_agents.accessibility_research.agent import accessibility_research_agent
         print("✓ Accessibility Research Agent imported successfully")
         
-        from travel_concierge.sub_agents.mobility_preparation.agent import mobility_preparation_agent
+        from inclusive_travel_agent.sub_agents.mobility_preparation.agent import mobility_preparation_agent
         print("✓ Mobility Preparation Agent imported successfully")
         
-        from travel_concierge.sub_agents.transit_support.agent import transit_support_agent
+        from inclusive_travel_agent.sub_agents.transit_support.agent import transit_support_agent
         print("✓ Transit Support Agent imported successfully")
         
-        from travel_concierge.sub_agents.barrier_navigation.agent import barrier_navigation_agent
+        from inclusive_travel_agent.sub_agents.barrier_navigation.agent import barrier_navigation_agent
         print("✓ Barrier Navigation Agent imported successfully")
         
         return True
@@ -62,10 +62,10 @@ def test_agent_structure():
     print("\nTesting Agent Structure...")
     
     try:
-        from travel_concierge.sub_agents.accessibility_research.agent import accessibility_research_agent
-        from travel_concierge.sub_agents.mobility_preparation.agent import mobility_preparation_agent
-        from travel_concierge.sub_agents.transit_support.agent import transit_support_agent
-        from travel_concierge.sub_agents.barrier_navigation.agent import barrier_navigation_agent
+        from inclusive_travel_agent.sub_agents.accessibility_research.agent import accessibility_research_agent
+        from inclusive_travel_agent.sub_agents.mobility_preparation.agent import mobility_preparation_agent
+        from inclusive_travel_agent.sub_agents.transit_support.agent import transit_support_agent
+        from inclusive_travel_agent.sub_agents.barrier_navigation.agent import barrier_navigation_agent
         
         # Test accessibility research agent
         assert accessibility_research_agent.name == "accessibility_research_agent"
@@ -99,14 +99,14 @@ def test_enhanced_booking_agent():
     print("\nTesting Enhanced Booking Agent...")
     
     try:
-        from travel_concierge.sub_agents.booking.agent import booking_agent
+        from inclusive_travel_agent.sub_agents.booking.agent import booking_agent
         
         # Check that booking agent exists and has expected tools
         assert booking_agent.name == "booking_agent"
         assert len(booking_agent.tools) >= 3  # Should have create_reservation, payment_choice, process_payment
         
         # Read the booking prompt to verify accessibility enhancements
-        with open("travel_concierge/sub_agents/booking/prompt.py", "r") as f:
+        with open("inclusive_travel_agent/sub_agents/booking/prompt.py", "r") as f:
             booking_prompt_content = f.read()
         
         # Check for accessibility-related keywords in the prompt
@@ -170,7 +170,7 @@ def test_prompt_enhancements():
     
     try:
         # Check root agent prompt
-        with open("travel_concierge/prompt.py", "r") as f:
+        with open("inclusive_travel_agent/prompt.py", "r") as f:
             root_prompt = f.read()
         
         new_agent_references = [

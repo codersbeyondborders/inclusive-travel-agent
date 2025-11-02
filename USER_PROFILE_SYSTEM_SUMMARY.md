@@ -23,26 +23,26 @@ Frontend Onboarding App → Backend API → User Profile Storage → AI Agents
 
 ## 📦 Components Implemented
 
-### 1. User Profile Models (`travel_concierge/models/user_profile.py`)
+### 1. User Profile Models (`inclusive_travel_agent/models/user_profile.py`)
 - **BasicInfo** - Name, email, nationality, location, emergency contacts
 - **TravelInterests** - Destinations, styles, budget, activities, transport preferences
 - **AccessibilityProfile** - Mobility, sensory, cognitive needs, assistance preferences
 - **UserPreferences** - Communication style, risk tolerance, planning preferences
 - **Complete UserProfile** - Combines all components with metadata
 
-### 2. Database Service (`travel_concierge/services/user_profile_service.py`)
+### 2. Database Service (`inclusive_travel_agent/services/user_profile_service.py`)
 - **Firestore Integration** - Production-ready cloud storage
 - **Memory Fallback** - Development mode when Firestore unavailable
 - **CRUD Operations** - Create, read, update, delete user profiles
 - **Profile Management** - Listing, pagination, completeness tracking
 
-### 3. Context Service (`travel_concierge/services/context_service.py`)
+### 3. Context Service (`inclusive_travel_agent/services/context_service.py`)
 - **Context Injection** - Injects user profile into AI agent sessions
 - **Personalized Instructions** - Generates agent-specific personalized prompts
 - **Session Management** - Maintains context across conversations
 - **Preference Learning** - Tracks learned preferences from interactions
 
-### 4. Enhanced API (`travel_concierge/main.py`)
+### 4. Enhanced API (`inclusive_travel_agent/main.py`)
 - **User Management Endpoints** - Full CRUD API for user profiles
 - **Context-Aware Chat** - Chat endpoint accepts user_id for personalization
 - **Session Handling** - Proper session management with context injection
@@ -182,7 +182,7 @@ The system is **production-ready** and can be deployed immediately:
 uv run python deploy/deploy_cloud_run.py --project-id YOUR_PROJECT_ID
 
 # Or test locally
-uv run uvicorn travel_concierge.main:app --reload --port 8080
+uv run uvicorn inclusive_travel_agent.main:app --reload --port 8080
 ```
 
 ## 📋 Next Steps for Frontend Integration

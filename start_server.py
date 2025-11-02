@@ -2,7 +2,7 @@
 """Start the Inclusive Travel Agent API server for local testing."""
 
 import uvicorn
-from travel_concierge.main import app
+from inclusive_travel_agent.main import app
 
 if __name__ == "__main__":
     print("🚀 Starting Inclusive Travel Agent API server...")
@@ -14,7 +14,7 @@ if __name__ == "__main__":
     print("\n⚡ Server starting... Press Ctrl+C to stop")
     
     uvicorn.run(
-        "travel_concierge.main:app", 
+        "inclusive_travel_agent.main:app", 
         host="0.0.0.0", 
         port=8080, 
         reload=True,

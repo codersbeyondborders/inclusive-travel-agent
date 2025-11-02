@@ -20,8 +20,8 @@ async def test_user_profile_system():
     
     try:
         # Import services
-        from travel_concierge.services import user_profile_service, context_service
-        from travel_concierge.models import (
+        from inclusive_travel_agent.services import user_profile_service, context_service
+        from inclusive_travel_agent.models import (
             CreateUserProfileRequest,
             BasicInfo,
             TravelInterests,
@@ -32,7 +32,7 @@ async def test_user_profile_system():
             CommunicationStyle,
             RiskTolerance,
         )
-        from travel_concierge.agent import root_agent
+        from inclusive_travel_agent.agent import root_agent
         from google.adk.sessions import Session
         
         print("✅ Successfully imported all modules")
@@ -168,7 +168,7 @@ async def test_user_profile_system():
         # Test 5: Update profile
         print("\n✏️  Test 5: Updating User Profile")
         
-        from travel_concierge.models import UpdateUserProfileRequest
+        from inclusive_travel_agent.models import UpdateUserProfileRequest
         
         # Add a new travel interest
         updated_interests = TravelInterests(

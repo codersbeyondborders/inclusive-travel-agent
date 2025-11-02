@@ -4,7 +4,7 @@ Test script for Phase 1: Core Accessibility Integration
 """
 
 import json
-from travel_concierge.shared_libraries.types import (
+from inclusive_travel_agent.shared_libraries.types import (
     AccessibilityInfo, 
     AccessibleUserProfile, 
     AccessibilityNeeds,
@@ -155,7 +155,7 @@ def test_accessible_profile_loading():
     print("\nTesting Accessible Profile Loading...")
     
     try:
-        with open("travel_concierge/profiles/itinerary_accessible_default.json", "r") as f:
+        with open("inclusive_travel_agent/profiles/itinerary_accessible_default.json", "r") as f:
             profile_data = json.load(f)
         
         user_profile_data = profile_data["state"]["user_profile"]
@@ -180,7 +180,7 @@ def test_agent_loading():
     print("\nTesting Agent Loading...")
     
     try:
-        from travel_concierge.agent import root_agent
+        from inclusive_travel_agent.agent import root_agent
         
         # Check that the agent has the expected sub-agents
         sub_agent_names = [agent.name for agent in root_agent.sub_agents]

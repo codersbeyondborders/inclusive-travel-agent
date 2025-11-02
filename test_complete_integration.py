@@ -12,7 +12,7 @@ import threading
 import uvicorn
 from typing import Dict, Any, Optional
 
-from travel_concierge.main import app
+from inclusive_travel_agent.main import app
 
 # Configuration
 API_BASE_URL = "http://localhost:8080"

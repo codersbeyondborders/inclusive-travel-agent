@@ -4,13 +4,18 @@ An AI-powered travel agent specializing in accessible travel planning, built wit
 
 ## 🌟 Key Features
 
-- **10 Specialized AI Agents** covering all aspects of accessible travel
+- **14 Specialized AI Agents** covering all aspects of accessible travel with comprehensive automation
+- **Personalized User Profiles** with detailed accessibility needs and travel preferences
+- **Automated Notifications & Communications** with email confirmations and provider coordination
+- **Proactive Accessibility Communication** to hotels, airlines, and transportation providers
+- **Automated Web Check-in** for flights and hotels with accessibility optimization
+- **Smart Safety Monitoring** with compliance verification and issue prevention
 - **Real-time Accessibility Information** from external APIs and databases
 - **Barrier Navigation Support** with immediate solutions and alternatives
 - **Mobility Aid Preparation** assistance for equipment and documentation
 - **Transit Support Coordination** for airports, stations, and transportation
 - **Inclusive Booking Process** with accessibility accommodations
-- **Cloud-Ready Deployment** on Google Cloud Run
+- **Cloud-Ready Deployment** on Google Cloud Run with production-ready API
 
 ## 🎯 Mission
 
@@ -30,6 +35,8 @@ Making travel accessible for everyone by providing AI-powered assistance that un
 - Book flights, trains, hotels with accessibility accommodations
 - Request special assistance services automatically
 - Communicate accessibility needs to service providers
+- Send automated email confirmations with accessibility details
+- Proactively notify providers 7-14 days before arrival
 
 ### 🧳 **Prepare & Pack**
 - Arrange mobility aids and assistive equipment for travel
@@ -38,8 +45,10 @@ Making travel accessible for everyone by providing AI-powered assistance that un
 
 ### ✈️ **Travel & Transit Support**
 - Coordinate assistance at airports and stations
+- Automated web check-in 24 hours before departure with optimal accessible seating
 - Manage priority check-in, security, and boarding
 - Provide real-time support during travel
+- Smart safety monitoring with compliance verification
 
 ### 🏨 **Stay & Explore**
 - Confirm hotel accessibility and room features
@@ -47,9 +56,10 @@ Making travel accessible for everyone by providing AI-powered assistance that un
 - Navigate barriers with immediate alternatives
 
 ### 🔄 **Return & Review**
-- Arrange assistance for return journey
+- Automated return journey check-in and assistance coordination
 - Collect accessibility feedback for future travelers
 - Share experiences to help the community
+- Post-trip email follow-ups and satisfaction surveys
 
 
 ## Agent Details
@@ -68,18 +78,46 @@ See section [MCP](#mcp) for an example using Airbnb's MCP search tool.
 ### Agent Architecture
 Inclusive Travel Agent Architecture
 
-<img src="inclusive-travel-agent-arch.png" alt="Inclusive Travel Agent's Multi-Agent Architecture" width="800"/>
+<img src="inclusive-travel-agent-arch.png" alt="Inclusive Travel Agent's 14-Agent Architecture with Automation & Notifications" width="800"/>
+
+### System Architecture Overview
+
+The Inclusive Travel Agent features a comprehensive 14-agent architecture organized into three specialized tiers:
+
+**🎯 Core Travel Agents (6)** - Handle the fundamental travel planning journey from inspiration to post-trip feedback
+
+**♿ Accessibility-Focused Agents (4)** - Provide specialized accessibility research, mobility preparation, transit support, and barrier navigation
+
+**🤖 Automation & Notification Agents (4)** - Deliver proactive communications, automated check-ins, and intelligent safety monitoring
+
+**🔧 Supporting Infrastructure:**
+- **User Profile System** with comprehensive accessibility needs tracking
+- **Email Service Integration** for automated notifications and confirmations  
+- **External API Connections** for real-time accessibility information
+- **Production-Ready FastAPI** with full CRUD operations and chat endpoints
 
 ### Component Details
 
 Expand on the "Key Components" from above.
-*   **Agents:**
-    * `inspiration_agent` - Interacts with the user to make suggestions on destinations and activities, inspire the user to choose one.
-    * `planning_agent` - Given a destination, start date, and duration, the planning agent helps the user select flights, seats and a hotel (mocked), then generate an itinerary containing the activities.
-    * `booking_agent` - Given an itinerary, the booking agent will help process those items in the itinerary that requires payment.
-    * `pre_trip_agent` - Intended to be invoked regularly before the trip starts; This agent fetches relevant trip information given its origin, destination, and the user's nationality.
-    * `in_trip_agent`- Intended to be invoked frequently during the trip. This agent provide three services: monitor any changes in bookings (mocked), acts as an informative guide, and provides transit assistance.
-    * `post_trip_agent` - In this example, the post trip agent asks the traveler about their experience and attempts to extract and store their various preferences based on the trip, so that the information could be useful in future interactions.
+*   **Core Travel Agents (6):**
+    * `inspiration_agent` - Provides accessible destination suggestions and activity recommendations with disability-friendly options.
+    * `planning_agent` - Helps select accessible flights, seats, and hotels with comprehensive accessibility features.
+    * `booking_agent` - Processes bookings with automatic accessibility accommodation requests and confirmations.
+    * `pre_trip_agent` - Fetches accessibility information, travel advisories, and preparation requirements.
+    * `in_trip_agent` - Provides real-time travel support, accessibility assistance, and barrier navigation.
+    * `post_trip_agent` - Collects accessibility feedback and learns preferences for future trips.
+
+*   **Accessibility-Focused Agents (4):**
+    * `accessibility_research_agent` - Gathers comprehensive accessibility information, reviews, and barrier assessments.
+    * `mobility_preparation_agent` - Assists with mobility aid preparation, medical documentation, and equipment coordination.
+    * `transit_support_agent` - Coordinates airport assistance, priority services, and accessible transportation.
+    * `barrier_navigation_agent` - Provides real-time solutions for accessibility barriers and alternative options.
+
+*   **Automation & Notification Agents (4):**
+    * `notification_agent` - Manages email confirmations, travel reminders, and emergency notifications.
+    * `accessibility_communication_agent` - Proactively communicates accessibility needs to service providers.
+    * `web_checkin_agent` - Automates flight and hotel check-in with accessibility optimization.
+    * `smart_guardrails_agent` - Monitors safety, compliance, and prevents accessibility issues proactively.
 *   **Tools:**
     * `map_tool` - retrieves lat/long; geocoding an address with the Google Map API.
     * `memorize` - a function to memorize information from the dialog that are important to trip planning and to provide in-trip support.
@@ -110,16 +148,32 @@ Expand on the "Key Components" from above.
 ├── README.md
 ├── inclusive-travel-agent-arch.png
 ├── pyproject.toml
-├── travel_concierge/
+├── inclusive_travel_agent/
 │   ├── shared_libraries/
 │   ├── tools/
+│   │   ├── email_service.py
+│   │   ├── accessibility_apis.py
+│   │   └── memory.py
+│   ├── models/
+│   │   └── user_profile.py
+│   ├── services/
+│   │   ├── user_profile_service.py
+│   │   └── context_service.py
 │   └── sub_agents/
 │       ├── inspiration/
 │       ├── planning/
 │       ├── booking/
 │       ├── pre_trip/
 │       ├── in_trip/
-│       └── post_trip/
+│       ├── post_trip/
+│       ├── accessibility_research/
+│       ├── mobility_preparation/
+│       ├── transit_support/
+│       ├── barrier_navigation/
+│       ├── notification/
+│       ├── accessibility_communication/
+│       ├── web_checkin/
+│       └── smart_guardrails/
 ├── tests/
 │   └── unit/
 ├── eval/
@@ -130,8 +184,9 @@ Expand on the "Key Components" from above.
 ### Prerequisites
 
 - Python 3.10+
-- Google Cloud Project (for Vertex AI integration)
+- Google AI API Key (for ML Dev backend) or Google Cloud Project (for Vertex AI)
 - API Key for [Google Maps Platform Places API](https://developers.google.com/maps/documentation/places/web-service/get-api-key)
+- Email account for notifications (Gmail recommended)
 - Google Agent Development Kit 1.0+
 - uv: Install uv by following the instructions on the official uv [website](https://docs.astral.sh/uv/)
   ```bash
@@ -154,75 +209,110 @@ Expand on the "Key Components" from above.
     uv sync
     ```
 
-3.  Set up Google Cloud credentials:
+3.  Set up configuration:
 
-    Otherwise:
     - At the top directory `inclusive-travel-agent/`, make a `.env` by copying `.env.example`
-    - Set the following environment variables.
-    - To use Vertex, make sure you have the Vertex AI API enabled in your project.
+    - Set the following environment variables:
+    ```bash
+    # Choose Model Backend: 0 -> ML Dev (recommended), 1 -> Vertex AI
+    GOOGLE_GENAI_USE_VERTEXAI=0
+    
+    # Google AI API Key (for ML Dev backend - get from https://aistudio.google.com/app/apikey)
+    GOOGLE_API_KEY=YOUR_GOOGLE_AI_API_KEY_HERE
+    
+    # Google Cloud Project (optional for ML Dev, required for Vertex AI)
+    GOOGLE_CLOUD_PROJECT=YOUR_CLOUD_PROJECT_ID_HERE
+    GOOGLE_CLOUD_REGION=us-central1
+
+    # Places API (required for location features)
+    GOOGLE_PLACES_API_KEY=YOUR_PLACES_API_KEY_HERE
+
+    # Email Service Configuration (for notifications)
+    EMAIL_ADDRESS=your_email@gmail.com
+    EMAIL_PASSWORD=your_app_password
+    SMTP_SERVER=smtp.gmail.com
+    SMTP_PORT=587
+    EMAIL_USE_TLS=true
+
+    # Accessibility APIs (optional)
+    WHEELMAP_API_KEY=YOUR_WHEELMAP_API_KEY_HERE
+    ACCESSIBLEGO_API_KEY=YOUR_ACCESSIBLEGO_API_KEY_HERE
+
+    # Default user profile with accessibility needs
+    INCLUSIVE_TRAVEL_AGENT_SCENARIO=inclusive_travel_agent/profiles/itinerary_accessible_default.json
     ```
-    # Choose Model Backend: 0 -> ML Dev, 1 -> Vertex
-    GOOGLE_GENAI_USE_VERTEXAI=1
-    # ML Dev backend config, when GOOGLE_GENAI_USE_VERTEXAI=0, ignore if using Vertex.
-    # GOOGLE_API_KEY=YOUR_VALUE_HERE
 
-    # Vertex backend config
-    GOOGLE_CLOUD_PROJECT=__YOUR_CLOUD_PROJECT_ID__
-    GOOGLE_CLOUD_LOCATION=us-central1
-
-    # Places API
-    GOOGLE_PLACES_API_KEY=__YOUR_API_KEY_HERE__
-
-    # GCS Storage Bucket name - for Agent Engine deployment test
-    GOOGLE_CLOUD_STORAGE_BUCKET=YOUR_BUCKET_NAME_HERE
-
-    # Sample Scenario Path - Default is an empty itinerary
-    # This will be loaded upon first user interaction.
-    #
-    # Uncomment one of the two, or create your own.
-    #
-    # TRAVEL_CONCIERGE_SCENARIO=travel_concierge/profiles/itinerary_seattle_example.json
-    TRAVEL_CONCIERGE_SCENARIO=travel_concierge/profiles/itinerary_empty_default.json
-    ```
-
-4. Authenticate your GCloud account.
+4. (Optional) For Vertex AI backend, authenticate your GCloud account:
     ```bash
     gcloud auth application-default login
     ```
 
-5. Activate the virtual environment set up by Poetry, run:
-    ```bash
-    eval $(poetry env activate)
-    (inclusive-travel-agent-py3.12) $ # Virtualenv entered
-    ```
-    Repeat this command whenever you have a new shell, before running the commands in this README.
+## 🤖 Automation Features
+
+### Proactive Notifications
+- **Email Confirmations**: Automated booking confirmations with accessibility details
+- **Provider Communications**: Proactive emails to hotels and airlines about accessibility needs
+- **Travel Reminders**: Automated reminders for documents, packing, and preparation
+- **Emergency Alerts**: Immediate notifications to emergency contacts when needed
+
+### Automated Check-in Services
+- **Flight Check-in**: Automatic web check-in 24 hours before departure
+- **Optimal Seating**: Intelligent accessible seat selection based on mobility needs
+- **Hotel Coordination**: Early check-in arrangements for accessibility room preparation
+- **Service Confirmation**: Verification of all special assistance services
+
+### Smart Safety Monitoring
+- **Compliance Verification**: Continuous monitoring of accessibility regulation compliance
+- **Risk Assessment**: Proactive identification of safety risks for disabled travelers
+- **Issue Prevention**: Early warning systems and preventive measures
+- **Emergency Coordination**: Rapid response protocols for accessibility emergencies
+
+### Accessibility Communication
+- **7-14 Day Advance Notice**: Accessibility needs communicated well before travel
+- **Written Confirmations**: All accessibility services confirmed in writing
+- **Direct Coordinator Contact**: Relationships established with accessibility coordinators
+- **Follow-up Protocols**: Systematic follow-up to ensure arrangements remain in place
 
 ## Running the Agent
 
-### Using `adk`
+### Using the Production API Server
 
-ADK provides convenient ways to bring up agents locally and interact with them.
-You may talk to the agent using the CLI:
+The system includes a production-ready FastAPI server with comprehensive endpoints:
 
 ```bash
-# Under the inclusive-travel-agent directory:
-adk run travel_concierge
+# Start the production server
+uv run python start_server.py
 ```
 
-or via its web interface:
+This starts the server at `http://localhost:8080` with the following endpoints:
+- **API Documentation**: `http://localhost:8080/docs`
+- **Health Check**: `http://localhost:8080/health`
+- **User Profiles**: `http://localhost:8080/users` (CRUD operations)
+- **Chat with Context**: `http://localhost:8080/chat` (personalized responses)
+- **Agent Information**: `http://localhost:8080/agent/info`
+
+### Using `adk` (Development)
+
+For development and testing, ADK provides convenient ways to interact with agents:
+
 ```bash
-# Under the inclusive-travel-agent directory:
+# CLI interface
+adk run inclusive_travel_agent
+
+# Web interface
 adk web
 ```
 
-This will start a local web server on your machine. You may open the URL, select "travel_concierge" in the top-left drop-down menu, and
-a chatbot interface will appear on the right. 
+Select "inclusive_travel_agent" in the top-left drop-down menu for the chatbot interface. 
 
 The conversation is initially blank. For an outline on the concierge interaction, see the section [Sample Agent interaction](#sample-agent-interaction) 
 
-Here is something to try: 
-* "Need some destination ideas for the Americas"
-* After interacting with the agents for a while, you may ask: "Go ahead to planning".
+Here are some things to try:
+* **Inspiration**: "Need accessible destination ideas for Europe"
+* **Planning**: "Help me plan an accessible trip to Tokyo with wheelchair accessibility"
+* **Automation**: "Set up automated check-in and notify the hotel about my accessibility needs"
+* **Notifications**: "Send me email confirmations and coordinate with the airline about my wheelchair assistance"
+* **Safety**: "Monitor my trip for accessibility compliance and safety issues"
 
 
 ### Programmatic Access
@@ -230,9 +320,9 @@ Here is something to try:
 Below is an example of interacting with the agent as a server using Python. 
 Try it under the inclusive-travel-agent directory:
 
-First, establish a quick development API server for the travel_concierge package.
+First, establish a quick development API server for the inclusive_travel_agent package.
 ```bash
-adk api_server travel_concierge
+adk api_server inclusive_travel_agent
 ```
 This will start a fastapi server at http://127.0.0.1:8000.
 You can access its API docs at http://127.0.0.1:8000/docs
@@ -281,31 +371,64 @@ To run agent trajectory tests:
 uv run pytest eval
 ```
 
+## 👤 User Profile System
+
+### Comprehensive Profile Management
+The system includes a sophisticated user profile system that enables personalized, context-aware responses:
+
+**Profile Components:**
+- **Basic Information**: Name, email, nationality, home location, emergency contacts
+- **Travel Interests**: Preferred destinations, travel styles, budget range, activity preferences
+- **Accessibility Profile**: Mobility needs, sensory needs, assistance preferences, mobility aids
+- **Communication Preferences**: Style, risk tolerance, language, currency preferences
+
+### API Endpoints
+- `POST /users` - Create user profile (onboarding)
+- `GET /users/{user_id}` - Retrieve user profile
+- `PUT /users/{user_id}` - Update user profile
+- `DELETE /users/{user_id}` - Delete user profile
+- `GET /users` - List user profiles (paginated)
+- `POST /chat` - Context-aware chat with user_id parameter
+
+### Personalization Benefits
+- **Context-Aware Responses**: AI agents know your specific accessibility needs
+- **Consistent Experience**: No need to re-explain requirements in each conversation
+- **Tailored Recommendations**: Suggestions match your interests and accessibility requirements
+- **Automated Accommodations**: Accessibility services automatically included in all bookings
+
+### Storage Options
+- **Production**: Google Cloud Firestore for scalable, real-time user profile storage
+- **Development**: In-memory storage with automatic fallback when Firestore unavailable
+- **Security**: Proper handling of sensitive accessibility and medical information
+
 ## Deploying the Agent
 
-To deploy the agent to Vertex AI Agent Engine, run the following command under `inclusive-travel-agent`:
+### Cloud Run Deployment (Recommended)
+
+Deploy the complete system to Google Cloud Run for production use:
+
+```bash
+# One-command deployment
+uv run python deploy/deploy_cloud_run.py --project-id YOUR_PROJECT_ID
+```
+
+This deploys:
+- **FastAPI Application** with all endpoints
+- **User Profile System** with Firestore integration
+- **Email Notification Service** for automated communications
+- **All 14 Specialized Agents** with full functionality
+- **Auto-scaling Infrastructure** that handles variable loads
+
+### Vertex AI Agent Engine (Alternative)
+
+For Vertex AI deployment, run the following command:
 
 ```bash
 uv sync --group deployment
 uv run python deployment/deploy.py --create
 ```
-When this command returns, if it succeeds it will print an AgentEngine resource
-id that looks something like this:
-```
-projects/************/locations/us-central1/reasoningEngines/7737333693403889664
-```
 
-To quickly test that the agent has successfully deployed,
-run the following command for one turn with the agent "Looking for inspirations around the Americas":
-```bash
-uv run python deployment/deploy.py --quicktest --resource_id=<RESOURCE_ID>
-```
-This will return a stream of JSON payload indicating the deployed agent is functional.
-
-To delete the agent, run the following command (using the resource ID returned previously):
-```bash
-uv run python deployment/deploy.py --delete --resource_id=<RESOURCE_ID>
-```
+This will return an AgentEngine resource ID for testing and management.
 
 ### Alternative: Using Agent Starter Pack
 
@@ -517,13 +640,21 @@ In an environment where the events are passed from the server running the agents
 
 The following are some ideas how one can reuse the concierge and make it your own.
 
-### Load a premade itinerary to demo the in-trip flow
-- By default, a user profile and an empty itinerary is loaded from `travel_concierge/profiles/itinerary_empty_default.json`.
-- To specify a different file to load, such as the Seattle example `travel_concierge/profiles/itinerary_seattle_example.json`:
-  - Set the environmental variable `INCLUSIVE_TRAVEL_AGENT_SCENARIO` to `travel_concierge/profiles/itinerary_seattle_example.json` in the `.env`.
-  - Then restart `adk web` and load the inclusive travel agent.
-- When you start interacting with the agent, the state will be loaded. 
-- You can see the loaded user profile and itinerary when you select "State" in the GUI.
+### User Profile System
+
+The system now includes comprehensive user profile management:
+
+- **Accessible Default Profile**: `inclusive_travel_agent/profiles/itinerary_accessible_default.json` includes sample accessibility needs
+- **Profile API**: Full CRUD operations for user profiles via REST API
+- **Context-Aware Responses**: Chat responses personalized based on user accessibility needs and preferences
+- **Frontend Integration**: Ready for frontend onboarding applications
+
+### Load Different Scenarios
+- **Empty Profile**: `inclusive_travel_agent/profiles/itinerary_empty_default.json`
+- **Seattle Example**: `inclusive_travel_agent/profiles/itinerary_seattle_example.json`
+- **Accessible Profile**: `inclusive_travel_agent/profiles/itinerary_accessible_default.json` (default)
+
+Set `INCLUSIVE_TRAVEL_AGENT_SCENARIO` in your `.env` file to change the default profile.
 
 
 ### Make your own premade itinerary for demos
@@ -536,14 +667,23 @@ The following are some ideas how one can reuse the concierge and make it your ow
   - You can modify / add additional profile fields to the 
 
 
-### Integration with external APIs
+### Integration with External APIs
 
-There are many opportunities for enhancements, customizations and integration in this example:
-- Connecting to real flights / seats selection systems
-- Connecting to real hotels / rooms selection systems
-- Usage of external memory persistence services, or databases, instead of the session's state
-- Use of the Google Maps [Route API](https://developers.google.com/maps/documentation/routes) in `day_of` agent.
-- Connect to external APIs for visa / medical / travel advisory and NOAA storm information instead of using Google Search Grounding.
+The system includes several external API integrations:
+
+**Current Integrations:**
+- **Google AI API**: ML Dev backend for cost-effective AI processing
+- **Google Places API**: Location and venue information
+- **Wheelmap.org API**: Crowd-sourced accessibility information
+- **Airport Accessibility Database**: Comprehensive airport accessibility data
+- **Email Services**: SMTP integration for notifications and confirmations
+
+**Enhancement Opportunities:**
+- Real flight and hotel booking system integration
+- Advanced accessibility databases and certification systems
+- Real-time transportation accessibility APIs
+- Medical facility accessibility verification services
+- Emergency accessibility service coordination systems
 
 
 ### Refining Agents

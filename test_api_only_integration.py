@@ -30,7 +30,7 @@ sys.modules['google.genai'].types.Content = Mock()
 sys.modules['google.genai'].types.Part = Mock()
 
 # Now import the app
-from travel_concierge.main import app
+from inclusive_travel_agent.main import app
 
 # Configuration
 API_BASE_URL = "http://localhost:8080"

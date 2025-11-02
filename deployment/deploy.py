@@ -6,7 +6,7 @@ import os
 from absl import app, flags
 from dotenv import load_dotenv
 
-from travel_concierge.agent import root_agent
+from inclusive_travel_agent.agent import root_agent
 
 from google.adk.sessions import VertexAiSessionService
 
@@ -56,7 +56,7 @@ def create(env_vars: dict[str, str]) -> None:
             "requests (>=2.32.3,<3.0.0)",
         ],
         extra_packages=[
-            "./travel_concierge",  # The main package
+            "./inclusive_travel_agent",  # The main package
         ],
     )
     print(f"Created remote agent: {remote_agent.resource_name}")
