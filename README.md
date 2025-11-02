@@ -68,7 +68,7 @@ See section [MCP](#mcp) for an example using Airbnb's MCP search tool.
 ### Agent Architecture
 Inclusive Travel Agent Architecture
 
-<img src="travel-concierge-arch.png" alt="Inclusive Travel Agent's Multi-Agent Architecture" width="800"/>
+<img src="inclusive-travel-agent-arch.png" alt="Inclusive Travel Agent's Multi-Agent Architecture" width="800"/>
 
 ### Component Details
 
@@ -108,7 +108,7 @@ Expand on the "Key Components" from above.
 ```
 .
 ├── README.md
-├── travel-concierge-arch.png
+├── inclusive-travel-agent-arch.png
 ├── pyproject.toml
 ├── travel_concierge/
 │   ├── shared_libraries/
@@ -144,9 +144,9 @@ Expand on the "Key Components" from above.
 
     ```bash
     git clone https://github.com/google/adk-samples.git
-    cd adk-samples/python/agents/travel-concierge
+    cd adk-samples/python/agents/inclusive-travel-agent
     ```
-    NOTE: From here on, all command-line instructions shall be executed under the directory  `travel-concierge/` unless otherwise stated.
+    NOTE: From here on, all command-line instructions shall be executed under the directory  `inclusive-travel-agent/` unless otherwise stated.
 
 2.  Install dependencies:
 
@@ -157,7 +157,7 @@ Expand on the "Key Components" from above.
 3.  Set up Google Cloud credentials:
 
     Otherwise:
-    - At the top directory `travel-concierge/`, make a `.env` by copying `.env.example`
+    - At the top directory `inclusive-travel-agent/`, make a `.env` by copying `.env.example`
     - Set the following environment variables.
     - To use Vertex, make sure you have the Vertex AI API enabled in your project.
     ```
@@ -205,13 +205,13 @@ ADK provides convenient ways to bring up agents locally and interact with them.
 You may talk to the agent using the CLI:
 
 ```bash
-# Under the travel-concierge directory:
+# Under the inclusive-travel-agent directory:
 adk run travel_concierge
 ```
 
 or via its web interface:
 ```bash
-# Under the travel-concierge directory:
+# Under the inclusive-travel-agent directory:
 adk web
 ```
 
@@ -228,7 +228,7 @@ Here is something to try:
 ### Programmatic Access
 
 Below is an example of interacting with the agent as a server using Python. 
-Try it under the travel-concierge directory:
+Try it under the inclusive-travel-agent directory:
 
 First, establish a quick development API server for the travel_concierge package.
 ```bash
@@ -283,7 +283,7 @@ uv run pytest eval
 
 ## Deploying the Agent
 
-To deploy the agent to Vertex AI Agent Engine, run the following command under `travel-concierge`:
+To deploy the agent to Vertex AI Agent Engine, run the following command under `inclusive-travel-agent`:
 
 ```bash
 uv sync --group deployment
@@ -317,7 +317,7 @@ python -m venv .venv && source .venv/bin/activate # On Windows: .venv\Scripts\ac
 
 # Install the starter pack and create your project
 pip install --upgrade agent-starter-pack
-agent-starter-pack create my-inclusive-travel-agent -a adk@travel-concierge
+agent-starter-pack create my-inclusive-travel-agent -a adk@inclusive-travel-agent
 ```
 
 <details>
@@ -325,7 +325,7 @@ agent-starter-pack create my-inclusive-travel-agent -a adk@travel-concierge
 
 If you have [`uv`](https://github.com/astral-sh/uv) installed, you can create and set up your project with a single command:
 ```bash
-uvx agent-starter-pack create my-inclusive-travel-agent -a adk@travel-concierge
+uvx agent-starter-pack create my-inclusive-travel-agent -a adk@inclusive-travel-agent
 ```
 This command handles creating the project without needing to pre-install the package into a virtual environment.
 
@@ -362,7 +362,7 @@ $ which npx
 /Users/USERNAME/.nvm/versions/node/v22.14.0/bin/npx
 ```
 
-Then, under the `travel-concierge/` directory, run the test with:
+Then, under the `inclusive-travel-agent/` directory, run the test with:
 ```
 python -m tests.mcp_abnb
 ```

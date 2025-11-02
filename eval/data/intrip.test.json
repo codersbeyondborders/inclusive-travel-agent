@@ -4,7 +4,7 @@
   "description": null,
   "eval_cases": [
     {
-      "eval_id": "/usr/local/google/home/gkcng/Projects/adk-samples/python/agents/travel-concierge/eval/data/intrip.test.json",
+      "eval_id": "/usr/local/google/home/gkcng/Projects/adk-samples/python/agents/inclusive-travel-agent/eval/data/intrip.test.json",
       "conversation": [
         {
           "invocation_id": "9c5b4cb9-9481-4916-9635-a5e8e60b7348",

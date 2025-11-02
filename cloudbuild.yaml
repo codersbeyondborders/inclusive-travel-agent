@@ -4,24 +4,24 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build',
-      '-t', 'gcr.io/$PROJECT_ID/travel-concierge:$COMMIT_SHA',
-      '-t', 'gcr.io/$PROJECT_ID/travel-concierge:latest',
+      '-t', 'gcr.io/$PROJECT_ID/inclusive-travel-agent:$COMMIT_SHA',
+      '-t', 'gcr.io/$PROJECT_ID/inclusive-travel-agent:latest',
       '.'
     ]
 
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/travel-concierge:$COMMIT_SHA']
+    args: ['push', 'gcr.io/$PROJECT_ID/inclusive-travel-agent:$COMMIT_SHA']
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/travel-concierge:latest']
+    args: ['push', 'gcr.io/$PROJECT_ID/inclusive-travel-agent:latest']
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args: [
-      'run', 'deploy', 'travel-concierge',
-      '--image', 'gcr.io/$PROJECT_ID/travel-concierge:$COMMIT_SHA',
+      'run', 'deploy', 'inclusive-travel-agent',
+      '--image', 'gcr.io/$PROJECT_ID/inclusive-travel-agent:$COMMIT_SHA',
       '--region', 'us-central1',
       '--platform', 'managed',
       '--allow-unauthenticated',
@@ -34,8 +34,8 @@ steps:
 
 # Store images in Container Registry
 images:
-  - 'gcr.io/$PROJECT_ID/travel-concierge:$COMMIT_SHA'
-  - 'gcr.io/$PROJECT_ID/travel-concierge:latest'
+  - 'gcr.io/$PROJECT_ID/inclusive-travel-agent:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/inclusive-travel-agent:latest'
 
 # Build options
 options:

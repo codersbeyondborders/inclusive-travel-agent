@@ -90,7 +90,7 @@ def build_and_deploy(project_id: str, region: str = "us-central1", use_cloud_bui
         print("Building locally and deploying...")
         
         # Build the Docker image
-        image_name = f"gcr.io/{project_id}/travel-concierge:latest"
+        image_name = f"gcr.io/{project_id}/inclusive-travel-agent:latest"
         run_command(f"docker build -t {image_name} .")
         
         # Push to Container Registry
@@ -98,7 +98,7 @@ def build_and_deploy(project_id: str, region: str = "us-central1", use_cloud_bui
         
         # Deploy to Cloud Run
         deploy_cmd = f"""
-        gcloud run deploy travel-concierge \
+        gcloud run deploy inclusive-travel-agent \
             --image {image_name} \
             --region {region} \
             --platform managed \
@@ -117,14 +117,14 @@ def build_and_deploy(project_id: str, region: str = "us-central1", use_cloud_bui
 def get_service_url(project_id: str, region: str = "us-central1") -> str:
     """Get the URL of the deployed Cloud Run service."""
     result = run_command(
-        f"gcloud run services describe travel-concierge --region {region} --format 'value(status.url)'",
+        f"gcloud run services describe inclusive-travel-agent --region {region} --format 'value(status.url)'",
         check=False
     )
     
     if result.returncode == 0 and result.stdout.strip():
         return result.stdout.strip()
     else:
-        return f"https://travel-concierge-{project_id}.a.run.app"
+        return f"https://inclusive-travel-agent-{project_id}.a.run.app"
 
 
 def test_deployment(service_url: str):
